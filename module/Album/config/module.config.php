@@ -7,10 +7,10 @@ return [
 
     'router' => [
         'routes' => [
-            'album' => [
+            'personal' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route' => '/album[/:action[/:id]]',
+                    'route' => '/personal[/:action[/:id]]',
                     'constraints' => [
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
@@ -26,7 +26,7 @@ return [
 
     'view_manager' => [
         'template_path_stack' => [
-            'album' => __DIR__ . '/../view',
+            'personal' => __DIR__ . '/../view',
         ],
     ],
 ];

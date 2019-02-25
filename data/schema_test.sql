@@ -1,0 +1,2 @@
+CREATE TABLE personal_detail ( id INT(11) NOT NULL AUTO_INCREMENT , name VARCHAR(255) NOT NULL , age VARCHAR(4) NOT NULL , standard INT(4) NOT NULL , division CHAR(3) NOT NULL , home_address TEXT NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB;
+CREATE TABLE family_detail ( id INT(11) NOT NULL AUTO_INCREMENT , personal_id INT(11) NOT NULL , name VARCHAR(255) NOT NULL , age VARCHAR(4) NOT NULL , relation VARCHAR(255) NOT NULL , address TEXT NOT NULL , PRIMARY KEY (id)) ENGINE = InnoDB;

@@ -18,7 +18,7 @@ class AlbumController extends AbstractActionController
     public function indexAction()
     {
         return new ViewModel([
-            'albums' => $this->table->fetchAll(),
+            'personal' => $this->table->fetchAll(),
         ]);
     }
 
@@ -43,7 +43,7 @@ class AlbumController extends AbstractActionController
 
         $album->exchangeArray($form->getData());
         $this->table->saveAlbum($album);
-        return $this->redirect()->toRoute('album');
+        return $this->redirect()->toRoute('personal');
     }
 
     public function editAction()
@@ -51,7 +51,7 @@ class AlbumController extends AbstractActionController
         $id = (int) $this->params()->fromRoute('id', 0);
 
         if (0 === $id) {
-            return $this->redirect()->toRoute('album', ['action' => 'add']);
+            return $this->redirect()->toRoute('personal', ['action' => 'add']);
         }
 
         // Retrieve the album with the specified id. Doing so raises
@@ -60,7 +60,7 @@ class AlbumController extends AbstractActionController
         try {
             $album = $this->table->getAlbum($id);
         } catch (\Exception $e) {
-            return $this->redirect()->toRoute('album', ['action' => 'index']);
+            return $this->redirect()->toRoute('personal', ['action' => 'index']);
         }
 
         $form = new AlbumForm();
@@ -84,7 +84,7 @@ class AlbumController extends AbstractActionController
         $this->table->saveAlbum($album);
 
         // Redirect to album list
-        return $this->redirect()->toRoute('album', ['action' => 'index']);
+        return $this->redirect()->toRoute('personal', ['action' => 'index']);
     }
 
     public function deleteAction()
@@ -104,12 +104,12 @@ class AlbumController extends AbstractActionController
             }
 
             // Redirect to list of albums
-            return $this->redirect()->toRoute('album');
+            return $this->redirect()->toRoute('personal');
         }
 
         return [
             'id'    => $id,
-            'album' => $this->table->getAlbum($id),
+            'personal' => $this->table->getAlbum($id),
         ];
     }
 }

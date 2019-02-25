@@ -14,22 +14,31 @@ use Zend\Validator\StringLength;
 class Album implements InputFilterAwareInterface
 {
     public $id;
-    public $artist;
-    public $title;
+    public $name;
+    public $age;
+    public $standard;
+    public $division;
+    public $home_address;
 
     public function exchangeArray(array $data)
     {
         $this->id     = !empty($data['id']) ? $data['id'] : null;
-        $this->artist = !empty($data['artist']) ? $data['artist'] : null;
-        $this->title  = !empty($data['title']) ? $data['title'] : null;
+        $this->name     = !empty($data['name']) ? $data['name'] : null;
+        $this->age     = !empty($data['age']) ? $data['age'] : null;
+        $this->standard     = !empty($data['standard']) ? $data['standard'] : null;
+        $this->division     = !empty($data['division']) ? $data['division'] : null;
+        $this->home_address = !empty($data['home_address']) ? $data['home_address'] : null;
     }
     
     public function getArrayCopy()
     {
         return [
             'id'     => $this->id,
-            'artist' => $this->artist,
-            'title'  => $this->title,
+            'name'     => $this->name,
+            'age'     => $this->age,
+            'standard'     => $this->standard,
+            'division' => $this->division,
+            'home_address'  => $this->home_address,
         ];
     }
 

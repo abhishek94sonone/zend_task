@@ -14,6 +14,13 @@
 return [
 	'db' => [
 		'driver' => 'Pdo',
-		'dsn'    => sprintf('sqlite:%s/data/zftutorial.db', realpath(getcwd())),
+		'dsn'    => 'mysql:dbname=zend_test;host=localhost',
+		'username'=>'root',
+		'password'=>''
 	],
+	'service_manager'=>array(
+		'factories'=>array(
+			'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
+		),
+	),
 ];
